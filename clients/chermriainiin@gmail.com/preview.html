@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Персональное меню • Preview</title>
+
+<style>
+  :root{
+    --brand:#1dbf73;
+    --muted:#888;
+    --bg:#ffffff;
+    --card-bg:#fff;
+    --shadow: 0 6px 20px rgba(17,17,17,0.06);
+  }
+  body{
+    margin:0;
+    padding:24px;
+    font-family: Inter, Arial, sans-serif;
+    background: var(--bg);
+    color:#111;
+    line-height:1.45;
+  }
+  .container{ max-width:800px; margin:0 auto; }
+  .card{ background:var(--card-bg); border-radius:14px; padding:20px; box-shadow:var(--shadow); margin-bottom:20px; }
+  h1,h2,h3{ margin:0 0 10px 0; font-weight:600; }
+  p{ margin:8px 0; }
+  .client-box{ border-left:4px solid var(--brand); padding-left:14px; }
+  .meta{ color:var(--muted); font-size:13px; }
+  .meal-row{ display:flex; gap:12px; align-items:flex-start; }
+  .meal-main{ flex:1; }
+  .meal-meta{ width:140px; text-align:right; color:var(--muted); font-size:13px; }
+  .snack-block{ margin-top:10px; padding:10px 14px; border-radius:10px; background:#f6fef9; border:1px solid #d4f4e3; }
+  .day-title{ font-size:18px; margin-bottom:10px; }
+  .tips ul{ padding-left:20px; margin:8px 0; }
+  .cta{ text-align:center; margin-top:20px; }
+  .cta a{ background:var(--brand); color:#fff; text-decoration:none; padding:14px 28px; border-radius:12px; font-weight:700; box-shadow:0 8px 20px rgba(29,191,115,0.25); display:inline-block; transition: transform .12s ease; }
+  .cta a:hover{ transform:translateY(-3px); }
+  .progress{ margin:12px 0; }
+  .progress-bar{ height:12px; background:#eee; border-radius:10px; overflow:hidden; }
+  .progress-fill{ height:100%; background:var(--brand); width:28%; box-shadow:0 6px 18px rgba(29,191,115,0.2); }
+  .benefits-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-top:10px; }
+  .benefit{ background:#fbfbfb; padding:12px; border-radius:10px; border:1px solid #eee; font-size:14px; }
+  .gallery{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:10px; margin-top:10px; }
+  .gallery img{ width:100%; border-radius:10px; display:block; }
+  .badge{ display:inline-block; background:var(--brand); color:#fff; padding:6px 10px; border-radius:999px; font-weight:700; font-size:13px; margin-right:8px; }
+  .mini-quote{ font-style:italic; color:var(--muted); font-size:14px; }
+  .limit{ color:#b33; font-weight:700; }
+  /* recipe styles */
+  .recipe{ margin-top:12px; border-top:1px dashed #eee; padding-top:12px; }
+  .recipe .props{ display:flex; gap:12px; flex-wrap:wrap; font-size:13px; color:var(--muted); margin-bottom:8px; }
+  .ingredients{ margin:8px 0; padding-left:18px; }
+  .steps{ margin:8px 0; padding-left:18px; }
+  .step{ margin:8px 0; }
+  details{ margin-top:8px; background:#fff; border-radius:10px; padding:10px; border:1px solid #f0f0f0; }
+  summary{ font-weight:700; cursor:pointer; }
+  .small{ font-size:13px; color:var(--muted); }
+  footer{ text-align:center; color:var(--muted); font-size:13px; margin-top:20px; }
+  /* responsive */
+  @media (max-width:600px){
+    .meal-meta{ display:none; }
+    .meal-row{ flex-direction:column; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <div>
+        <span class="badge">Preview</span>
+        <h1>Твой персональный старт, Ольга 👋</h1>
+        <p class="meta">Сформировано на основе твоих ответов. Это — первые 2 дня, показанные в полном качестве.</p>
+      </div>
+      <div style="text-align:right;">
+        <div class="small">Статус плана</div>
+        <div style="font-weight:700;color:var(--brand);">Готово: 2 / 7</div>
+      </div>
+    </div>
+    <p class="mini-quote">"Маленькие шаги дают реальные изменения — начнём с уверенного старта."</p>
+  </div>
+
+  <!-- CLIENT DATA -->
+  <div class="card client-box">
+    <h3>Твои данные:</h3>
+    <p><strong>Рост:</strong> 165</p>
+    <p><strong>Вес:</strong> 61</p>
+    <p><strong>Возраст:</strong> 36</p>
+    <p><strong>BMI:</strong> 22.4</p>
+    <p><strong>Цель:</strong> Похудение</p>
+    <p><strong>Аллергии:</strong> Нет</p>
+    <p><strong>Страна:</strong> Другая</p>
+    <p class="small"><strong>Время готовки (ориентировочно):</strong> 15–30 минут</p>
+    <p class="small" style="margin-top:8px;">Твои данные учтены — в полном плане будут точные расчёты калорий и замены продуктов под местные магазины.</p>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="card">
+    <h2 class="day-title">День 1</h2>
+    <p class="small" style="margin-bottom:10px;">Этот план питания составлен специально, чтобы помочь тебе в достижении цели: <strong>Похудение</strong>.</p>
+    <div class="meal-row">
+      <div class="meal-main">
+        <p><strong>Завтрак:</strong> Овсянка с ягодами и орехами</p>
+        <details open><summary>Показать рецепт — завтрак</summary><div class="recipe"><div class="props"><div class="small"><strong>Время:</strong> 10 минут</div><div class="small"><strong>Калории:</strong> 290 ккал</div><div class="small"><strong>Сложность:</strong> Легко</div></div><div><strong>Ингредиенты:</strong><ul class="ingredients">
+<li>40 г овсяных хлопьев</li>
+<li>150 мл миндального молока</li>
+<li>50 г смешанных ягод</li>
+<li>10 г грецких орехов</li>
+</ul></div><div><strong>Пошаговый рецепт:</strong>
+<ol class="steps">
+<li>Залей овсяные хлопья миндальным молоком, поставь на огонь и варь около 5 минут, помешивая.</li>
+<li>Добавь ягоды и крупно порубленные орехи в готовую кашу.</li>
+<li>Перемешай и подай горячим или охлаждённым — как любишь.</li>
+</ol>
+</div><div class="small" style="margin-top:8px;">Совет: Используй сезонные ягоды — они легче и с максимальным вкусом.</div></div></details>
+      </div>
+      <div class="meal-meta">
+        <div class="small">Перекус:</div>
+        <div style="font-weight:700;">Яблоко + творог 150 г</div>
+      </div>
+    </div>
+
+    <div style="margin-top:12px;">
+      <p><strong>Обед:</strong> Гречка с овощами и куриным филе</p>
+      <details><summary>Показать рецепт — обед</summary><div class="recipe"><div class="props"><div class="small"><strong>Время:</strong> 20 минут</div><div class="small"><strong>Калории:</strong> 420 ккал</div><div class="small"><strong>Сложность:</strong> Средне</div></div><div><strong>Ингредиенты:</strong><ul class="ingredients">
+<li>80 г гречки</li>
+<li>150 г куриного филе</li>
+<li>100 г брокколи</li>
+<li>1 ст.л. оливкового масла</li>
+<li>специи по вкусу</li>
+</ul></div><div><strong>Пошаговый рецепт:</strong>
+<ol class="steps">
+<li>Промой гречку, варь в двух стаканах воды около 15 минут до готовности.</li>
+<li>Обжарь куриное филе на оливковом масле, добавь специи и брокколи в конце, готовь ещё 5-7 минут.</li>
+<li>Смешай гречку и овощи с мясом, подавай горячим.</li>
+</ol>
+</div><div class="small" style="margin-top:8px;">Совет: Можно заменить брокколи цуккини, кабачками или цветной капустой.</div></div></details>
+    </div>
+
+    <div style="margin-top:12px;">
+      <p><strong>Ужин:</strong> Творог с зеленью и огурцами</p>
+      <details><summary>Показать рецепт — ужин</summary><div class="recipe"><div class="props"><div class="small"><strong>Время:</strong> 5 минут</div><div class="small"><strong>Калории:</strong> 180 ккал</div><div class="small"><strong>Сложность:</strong> Очень просто</div></div><div><strong>Ингредиенты:</strong><ul class="ingredients">
+<li>200 г творога 5%</li>
+<li>1 огурец</li>
+<li>зелень (укроп, петрушка)</li>
+<li>перец, соль по вкусу</li>
+</ul></div><div><strong>Пошаговый рецепт:</strong>
+<ol class="steps">
+<li>Нарежь огурцы и зелень мелко.</li>
+<li>Смешай творог с огурцами, зеленью, добавь специи.</li>
+<li>Подавай холодным — легкий и быстрый ужин.</li>
+</ol>
+</div><div class="small" style="margin-top:8px;">Совет: Добавь немного лимонного сока для яркости вкуса.</div></div></details>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="card">
+    <h2 class="day-title">День 2</h2>
+
+    <div class="meal-row">
+      <div class="meal-main">
+        <p><strong>Завтрак:</strong> Яйца вкрутую с авокадо и цельнозерновым тостом</p>
+        <details><summary>Показать рецепт — завтрак</summary><div class="recipe"><div class="props"><div class="small"><strong>Время:</strong> 10 минут</div><div class="small"><strong>Калории:</strong> 330 ккал</div><div class="small"><strong>Сложность:</strong> Легко</div></div><div><strong>Ингредиенты:</strong><ul class="ingredients">
+<li>2 яйца</li>
+<li>30 г авокадо</li>
+<li>1 цельнозерновой тост</li>
+</ul></div><div><strong>Пошаговый рецепт:</strong>
+<ol class="steps">
+<li>Варите яйца вкрутую около 8 минут.</li>
+<li>Подготовьте тост, намазать мёд или масло необязательно.</li>
+<li>Разрежьте яйца, положите на тост, добавьте нарезанный авокадо.</li>
+</ol>
+</div><div class="small" style="margin-top:8px;">Совет: Можно добавить чуть перца или лимонного сока.</div></div></details>
+      </div>
+      <div class="meal-meta">
+        <div class="small">Перекус:</div>
+        <div style="font-weight:700;">Груша + миндаль 15 г</div>
+      </div>
+    </div>
+
+    <div style="margin-top:12px;">
+      <p><strong>Обед:</strong> Лещ или треска с салатом из огурцов и помидоров</p>
+      <details><summary>Показать рецепт — обед</summary><div class="recipe"><div class="props"><div class="small"><strong>Время:</strong> 20 минут</div><div class="small"><strong>Калории:</strong> 390 ккал</div><div class="small"><strong>Сложность:</strong> Средне</div></div><div><strong>Ингредиенты:</strong><ul class="ingredients">
+<li>150 г рыбы (скумбрия/треска)</li>
+<li>2 огурца</li>
+<li>2 помидора</li>
+<li>1 ст.л. оливкового масла</li>
+<li>зелень, специи по вкусу</li>
+</ul></div><div><strong>Пошаговый рецепт:</strong>
+<ol class="steps">
+<li>Запеки рыбу или приготовь на пару — около 10 минут.</li>
+<li>Нарежь огурцы и помидоры, заправь оливковым маслом, добавь зелень.</li>
+<li>Подавай рыбу с салатом, приправленным по желанию.</li>
+</ol>
+</div><div class="small" style="margin-top:8px;">Совет: Лучше выбирать морскую рыбу без добавок.</div></div></details>
+    </div>
+
+    <div style="margin-top:12px;">
+      <p><strong>Ужин:</strong> Творог с ягодами и мятой</p>
+      <details><summary>Показать рецепт — ужин</summary><div class="recipe"><div class="props"><div class="small"><strong>Время:</strong> 5 минут</div><div class="small"><strong>Калории:</strong> 200 ккал</div><div class="small"><strong>Сложность:</strong> Очень просто</div></div><div><strong>Ингредиенты:</strong><ul class="ingredients">
+<li>200 г творога 5%</li>
+<li>50 г ягод (любые сезонные)</li>
+<li>мята для украшения</li>
+</ul></div><div><strong>Пошаговый рецепт:</strong>
+<ol class="steps">
+<li>В миске соедините творог и ягоды.</li>
+<li>Украсьте мятой — и наслаждайтесь.</li>
+</ol>
+</div><div class="small" style="margin-top:8px;">Совет: Можно добавить немного меда, если любишь сладкое.</div></div></details>
+    </div>
+  </div>
+
+  <!-- Итог по дням -->
+  <div class="card">
+    <h3>Общий итог по дням</h3>
+    <p>День 1: Калорийность — около 890 ккал, Белки — 80 г, Жиры — 31 г, Углеводы — 122 г.</p>
+    <p>День 2: Калорийность — около 820 ккал, Белки — 78 г, Жиры — 29 г, Углеводы — 113 г.</p>
+    <p class="small"><em>Общий баланс подходит для снижения веса — соблюдай питьевой режим и избегай сладостей.</em></p>
+  </div>
+
+  <!-- Почему это важно -->
+  <div class="card">
+    <h3>Почему это важно</h3>
+    <p>Рацион с балансом БЖУ дает телу все необходимое для энергии и восстановления, а правильное сочетание продуктов помогает снизить отёки. Варианты блюд подобраны так, чтобы было быстро и просто — никаких сложных ингредиентов и долгого готовки.</p>
+    <p>Пей достаточно воды, выбирай натуральные продукты и не забывай двигаться — активность усилит эффект от питания!</p>
+  </div>
+
+  <!-- Списки покупок -->
+  <div class="card">
+    <h3>Часть твоего списка покупок:</h3>
+    <ul>
+      <li>Овсяные хлопья — 200 г</li>
+      <li>Миндальное молоко — 500 мл</li>
+      <li>Ягоды — 200 г</li>
+      <li>Грецкие орехи — 50 г</li>
+      <li>Яблоки — 2 шт.</li>
+    </ul>
+    <p class="small"><em>Полный список и точные пропорции — в полном плане.</em></p>
+  </div>
+
+  <!-- Актуальная калорийность -->
+  <div class="card">
+    <h3>Твой ориентировочный дневной баланс:</h3>
+    <p>Калории: <strong>~855 ккал</strong></p>
+    <p>Белки: <strong>78 г</strong></p>
+    <p>Жиры: <strong>30 г</strong></p>
+    <p>Углеводы: <strong>117 г</strong></p>
+    <p class="small"><em>Держи настрой на результат и избегай соблазнов.</em></p>
+  </div>
+
+  <!-- Галерея -->
+  <div class="card">
+    <h3>Примеры блюд из полного плана:</h3>
+    <div class="gallery">
+      <img src="https://i.imgur.com/hwHFfv0.jpeg" alt="блюдо1" />
+      <img src="https://i.imgur.com/OSwxdB5.jpeg" alt="блюдо2" />
+      <img src="https://i.imgur.com/DC46eh2.jpeg" alt="блюдо3" />
+    </div>
+  </div>
+
+  <!-- Прогресс -->
+  <div class="card">
+    <h3>Прогресс твоего меню</h3>
+    <div class="progress">
+      <div class="progress-bar"><div class="progress-fill" style="width:28%;"></div></div>
+      <p class="small" style="margin-top:8px;">Готово: 2 дня из 7</p>
+      <p class="small"><em>Осталось: 5 дней — активируй полный доступ и получи 30+ рецептов.</em></p>
+    </div>
+  </div>
+
+  <!-- Что внутри полного плана -->
+  <div class="card">
+    <h3>Что будет внутри полного плана:</h3>
+    <div class="benefits-grid">
+      <div class="benefit">Персональное меню на 7–30 дней</div>
+      <div class="benefit">Подробный список покупок с количеством</div>
+      <div class="benefit">Антиотёчный протокол + вечерние ритуалы</div>
+      <div class="benefit">Быстрые рецепты 10–30 минут</div>
+      <div class="benefit">Замены продуктов под твою страну</div>
+      <div class="benefit">Поддержка и апдейт под результат</div>
+    </div>
+  </div>
+
+  <!-- Эмоции -->
+  <div class="card">
+    <h3>Через 7 дней на полном плане:</h3>
+    <ul>
+      <li>Снижение утренних отёков</li>
+      <li>Заметное выравнивание живота</li>
+      <li>Энергия и стабильный аппетит</li>
+      <li>Меньше вечерних срывов</li>
+    </ul>
+  </div>
+
+  <!-- Социальный подтверждение -->
+  <div class="card">
+    <p class="mini-quote">"Это меню полностью изменило мой подход к питанию! Я чувствую себя великолепно." — Анна К.</p>
+  </div>
+
+  <!-- Спецпредложение -->
+  <div class="card" style="border:1px solid #ffeede; background:#fff9f5;">
+    <h3 style="margin-bottom:6px;">Специальная цена сегодня</h3>
+    <p style="margin:6px 0;">Полный персональный план на 7 дней:</p>
+    <p style="font-size:20px; font-weight:700; color:#1dbf73; margin:4px 0;">
+        15 € <span style="font-size:14px; color:#999; font-weight:400;">вместо 35 €</span>
+    </p>
+    <p class="small" style="margin-top:4px;">
+        Экономия: <strong>20 €</strong> (скидка только для участников preview).
+    </p>
+    <p class="small limit" style="margin:8px 0 4px 0;">
+        ✅ Скидка действует <strong>до конца завтрашнего дня</strong>
+    </p>
+    <p class="small" style="margin-top:4px;">
+        Осталось слотов персональной адаптации: <strong>4</strong>
+    </p>
+</div>
+
+<!-- CTA -->
+  <div class="cta card">
+    <a href="https://secure.wayforpay.com/button/b287c7fbef7a4">Получить полный персональный план →</a>
+    <p class="small" style="margin-top:10px;">Кнопка ведёт на оплату — после оплаты я подготовлю ваш план в течении 12 часов и отправлю его вам на почту.</p>
+    <p class="small" style="margin-top:12px; padding: 0 10px;"><strong>⭐ Наша 100% гарантия:</strong> Если тебе по какой-либо причине не понравится полный план, просто напиши мне в ответ на письмо, и я верну всю сумму без лишних вопросов.</p>
+  </div>
+
+  <footer>
+    pro100diet © Все рекомендации не заменяют консультацию врача. Для адаптаций при хронических заболеваниях — консультация специалиста обязательна.
+  </footer>
+
+</div>
+</body>
+</html>
