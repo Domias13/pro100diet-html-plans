@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Персональное меню • Preview</title>
+
+<style>
+  :root{
+    --brand:#1dbf73;
+    --muted:#888;
+    --bg:#ffffff;
+    --card-bg:#fff;
+    --shadow: 0 6px 20px rgba(17,17,17,0.06);
+  }
+  body{
+    margin:0;
+    padding:24px;
+    font-family: Inter, Arial, sans-serif;
+    background: var(--bg);
+    color:#111;
+    line-height:1.45;
+  }
+  .container{ max-width:800px; margin:0 auto; }
+  .card{ background:var(--card-bg); border-radius:14px; padding:20px; box-shadow:var(--shadow); margin-bottom:20px; }
+  h1,h2,h3{ margin:0 0 10px 0; font-weight:600; }
+  p{ margin:8px 0; }
+  .client-box{ border-left:4px solid var(--brand); padding-left:14px; }
+  .meta{ color:var(--muted); font-size:13px; }
+  .meal-row{ display:flex; gap:12px; align-items:flex-start; }
+  .meal-main{ flex:1; }
+  .meal-meta{ width:140px; text-align:right; color:var(--muted); font-size:13px; }
+  .snack-block{ margin-top:10px; padding:10px 14px; border-radius:10px; background:#f6fef9; border:1px solid #d4f4e3; }
+  .day-title{ font-size:18px; margin-bottom:10px; }
+  .tips ul{ padding-left:20px; margin:8px 0; }
+  .cta{ text-align:center; margin-top:20px; }
+  .cta a{ background:var(--brand); color:#fff; text-decoration:none; padding:14px 28px; border-radius:12px; font-weight:700; box-shadow:0 8px 20px rgba(29,191,115,0.25); display:inline-block; transition: transform .12s ease; }
+  .cta a:hover{ transform:translateY(-3px); }
+  .progress{ margin:12px 0; }
+  .progress-bar{ height:12px; background:#eee; border-radius:10px; overflow:hidden; }
+  .progress-fill{ height:100%; background:var(--brand); width:28%; box-shadow:0 6px 18px rgba(29,191,115,0.2); }
+  .benefits-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-top:10px; }
+  .benefit{ background:#fbfbfb; padding:12px; border-radius:10px; border:1px solid #eee; font-size:14px; }
+  .gallery{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:10px; margin-top:10px; }
+  .gallery img{ width:100%; border-radius:10px; display:block; }
+  .badge{ display:inline-block; background:var(--brand); color:#fff; padding:6px 10px; border-radius:999px; font-weight:700; font-size:13px; margin-right:8px; }
+  .mini-quote{ font-style:italic; color:var(--muted); font-size:14px; }
+  .limit{ color:#b33; font-weight:700; }
+  /* recipe styles */
+  .recipe{ margin-top:12px; border-top:1px dashed #eee; padding-top:12px; }
+  .recipe .props{ display:flex; gap:12px; flex-wrap:wrap; font-size:13px; color:var(--muted); margin-bottom:8px; }
+  .ingredients{ margin:8px 0; padding-left:18px; }
+  .steps{ margin:8px 0; padding-left:18px; }
+  .step{ margin:8px 0; }
+  details{ margin-top:8px; background:#fff; border-radius:10px; padding:10px; border:1px solid #f0f0f0; }
+  summary{ font-weight:700; cursor:pointer; }
+  .small{ font-size:13px; color:var(--muted); }
+  footer{ text-align:center; color:var(--muted); font-size:13px; margin-top:20px; }
+  /* responsive */
+  @media (max-width:600px){
+    .meal-meta{ display:none; }
+    .meal-row{ flex-direction:column; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <div>
+        <span class="badge">Preview</span>
+        <h1>Твой персональный старт, Ольга 👋</h1>
+        <p class="meta">Сформировано на основе твоих ответов. Это — первые 2 дня, показанные в полном качестве.</p>
+      </div>
+      <div style="text-align:right;">
+        <div class="small">Статус плана</div>
+        <div style="font-weight:700;color:var(--brand);">Готово: 2 / 7</div>
+      </div>
+    </div>
+    <p class="mini-quote">"Маленькие шаги дают реальные изменения — начнём с уверенного старта."</p>
+  </div>
+
+  <!-- CLIENT DATA -->
+  <div class="card client-box">
+    <h3>Твои данные:</h3>
+    <p><strong>Рост:</strong> 165</p>
+    <p><strong>Вес:</strong> 61</p>
+    <p><strong>Возраст:</strong> 36</p>
+    <p><strong>BMI:</strong> 22.4</p>
+    <p><strong>Цель:</strong> Похудение</p>
+    <p><strong>Аллергии:</strong> Нет</p>
+    <p><strong>Страна:</strong> Другая</p>
+    <p class="small"><strong>Время готовки (ориентировочно):</strong> 15–30 минут</p>
+    <p class="small" style="margin-top:8px;">Твои данные учтены — в полном плане будут точные расчёты калорий и замены продуктов под местные магазины.</p>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="card">
+    <h2 class="day-title">День 1</h2>
+    <p class="small" style="margin-bottom:10px;">Этот план питания составлен специально, чтобы помочь тебе в достижении цели: <strong>Похудение</strong>.</p>
+    <div class="meal-row">
+      <div class="meal-main">
+        <p><strong>Завтрак:</strong> Омлет из 2 яиц с помидорами и шпинатом (КБЖУ: 220 ккал, 14 г Б, 15 г Ж, 4 г У; 250 г)</p>
+        <details open>
+          <summary>Показать рецепт — завтрак</summary>
+          <div class="recipe">
+            <div class="props">
+              <div class="small"><strong>Время:</strong> 10 минут</div>
+              <div class="small"><strong>Калории:</strong> 220</div>
+              <div class="small"><strong>Сложность:</strong> Лёгкое</div>
+            </div>
+            <div><strong>Ингредиенты:</strong>
+              <ul class="ingredients">
+                <li>2 яйца</li>
+                <li>1 помидор</li>
+                <li>30 г шпината</li>
+                <li>1 ч.л. оливкового масла</li>
+                <li>Щепотка соли и перца</li>
+              </ul>
+            </div>
+            <div><strong>Пошаговый рецепт:</strong>
+              <ol class="steps">
+                <li>Нагрей сковороду с оливковым маслом.</li>
+                <li>Взбей яйца с щепоткой соли и перцем.</li>
+                <li>Налей яйца на сковороду, добавь нарезанный помидор и шпинат.</li>
+                <li>Готовь на среднем огне 3–4 минуты, пока омлет не схватится.</li>
+              </ol>
+            </div>
+            <div class="small" style="margin-top:8px;">Совет: Можно добавить немного сырка или зелени для вкуса.</div>
+          </div>
+        </details>
+      </div>
+      <div class="meal-meta">
+        <div class="small">Перекус:</div>
+        <div style="font-weight:700;">Греческий йогурт 150 г с ягодами</div>
+      </div>
+    </div>
+    <div style="margin-top:12px;">
+      <p><strong>Обед:</strong> Куриная грудка с овощами на пару (КБЖУ: 320 ккал, 30 г Б, 8 г Ж, 35 г У; 350 г)</p>
+      <details>
+        <summary>Показать рецепт — обед</summary>
+        <div class="recipe">
+          <div class="props">
+            <div class="small"><strong>Время:</strong> 20 минут</div>
+            <div class="small"><strong>Калории:</strong> 320</div>
+            <div class="small"><strong>Сложность:</strong> Среднее</div>
+          </div>
+          <div><strong>Ингредиенты:</strong>
+            <ul class="ingredients">
+              <li>150 г куриной грудки</li>
+              <li>100 г брокколи</li>
+              <li>50 г моркови</li>
+              <li>50 г цветной капусты</li>
+              <li>1 ч.л. оливкового масла</li>
+            </ul>
+          </div>
+          <div><strong>Пошаговый рецепт:</strong>
+            <ol class="steps">
+              <li>Порежь куриную грудку на небольшие куски, посоли и поперчи.</li>
+              <li>Отвари или приготовь на пару овощи.</li>
+              <li>Обжарь курицу на сковороде с оливковым маслом 7–8 минут до готовности.</li>
+              <li>Подавай с паровыми овощами.</li>
+            </ol>
+          </div>
+          <div class="small" style="margin-top:8px;">Совет: Можно добавить специи — паприку, куркуму.</div>
+        </div>
+      </details>
+    </div>
+    <div style="margin-top:12px;">
+      <p><strong>Ужин:</strong> Запечённая треска с зеленью и салатом (КБЖУ: 250 ккал, 20 г Б, 8 г Ж, 20 г У; 200 г)</p>
+      <details>
+        <summary>Показать рецепт — ужин</summary>
+        <div class="recipe">
+          <div class="props">
+            <div class="small"><strong>Время:</strong> 25 минут</div>
+            <div class="small"><strong>Калории:</strong> 250</div>
+            <div class="small"><strong>Сложность:</strong> Среднее</div>
+          </div>
+          <div><strong>Ингредиенты:</strong>
+            <ul class="ingredients">
+              <li>150 г трески или другой белой рыбы</li>
+              <li>Лимонный сок, специи по вкусу</li>
+              <li>Общий салат: огурец, листовой салат, зелень</li>
+            </ul>
+          </div>
+          <div><strong>Пошаговый рецепт:</strong>
+            <ol class="steps">
+              <li>Посоли рыбу, сбрызни лимонным соком, добавь специи.</li>
+              <li>Запекай при 180°C 20 минут.</li>
+              <li>Приготовь салат из нарезанных огурцов, зелени и заправки.</li>
+              <li>Подавай рыбу с салатом.</li>
+            </ol>
+          </div>
+          <div class="small" style="margin-top:8px;">Совет: Можно добавить немного оливкового масла в салат.</div>
+        </div>
+      </details>
+    </div>
+    <p style="margin-top:12px;"><strong>ИТОГ ДНЯ:</strong> Калорийность: 790 ккал, Б: 64 г, Ж: 31 г, У: 59 г</p>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="card">
+    <h2 class="day-title">День 2</h2>
+
+    <div class="meal-row">
+      <div class="meal-main">
+        <p><strong>Завтрак:</strong> Овсяная каша на воде с бананом и орехами (КБЖУ: 250 ккал, 6 г Б, 8 г Ж, 45 г У; 250 г)</p>
+        <details>
+          <summary>Показать рецепт — завтрак</summary>
+          <div class="recipe">
+            <div class="props">
+              <div class="small"><strong>Время:</strong> 8 минут</div>
+              <div class="small"><strong>Калории:</strong> 250</div>
+              <div class="small"><strong>Сложность:</strong> Лёгкое</div>
+            </div>
+            <div><strong>Ингредиенты:</strong>
+              <ul class="ingredients">
+                <li>50 г овсяных хлопьев</li>
+                <li>1 банан</li>
+                <li>10 г орехов (грецкий, миндаль и др.)</li>
+                <li>Вода или нежирное молоко — 200 мл</li>
+              </ul>
+            </div>
+            <div><strong>Пошаговый рецепт:</strong>
+              <ol class="steps">
+                <li>Залей овсяные хлопья водой или молоком, доведи до кипения.</li>
+                <li>Готовь 5–7 минут, помешивая.</li>
+                <li>Нарежь банан и добавь к каше вместе с орехами.</li>
+                <li>Перемешай и подавай.</li>
+              </ol>
+            </div>
+            <div class="small" style="margin-top:8px;">Совет: Можно добавить немного мёда или кленового сиропа.</div>
+          </div>
+        </details>
+      </div>
+      <div class="meal-meta">
+        <div class="small">Перекус:</div>
+        <div style="font-weight:700;">Яблоко и 15 г орехов</div>
+      </div>
+    </div>
+    <div style="margin-top:12px;">
+      <p><strong>Обед:</strong> Тушёная индейка с кабачками (КБЖУ: 330 ккал, 28 г Б, 10 г Ж, 40 г У; 370 г)</p>
+      <details>
+        <summary>Показать рецепт — обед</summary>
+        <div class="recipe">
+          <div class="props">
+            <div class="small"><strong>Время:</strong> 25 минут</div>
+            <div class="small"><strong>Калории:</strong> 330</div>
+            <div class="small"><strong>Сложность:</strong> Среднее</div>
+          </div>
+          <div><strong>Ингредиенты:</strong>
+            <ul class="ingredients">
+              <li>150 г индейки</li>
+              <li>1 кабачок</li>
+              <li>1 морковь</li>
+              <li>Лук, специи</li>
+              <li>1 ч.л. оливкового масла</li>
+            </ul>
+          </div>
+          <div><strong>Пошаговый рецепт:</strong>
+            <ol class="steps">
+              <li>Нарежь индейку кубиками, обжарь до золотистого цвета.</li>
+              <li>Добавь нарезанные морковь и лук, туши 10 минут.</li>
+              <li>Добавь кабачки, специи, туши ещё 10 минут до мягкости.</li>
+            </ol>
+          </div>
+          <div class="small" style="margin-top:8px;">Совет: Можно добавить немного соевого соуса.</div>
+        </div>
+      </details>
+    </div>
+    <div style="margin-top:12px;">
+      <p><strong>Ужин:</strong> Варёная киноа с овощами и куриным филе (КБЖУ: 280 ккал, 22 г Б, 5 г Ж, 45 г У; 300 г)</p>
+      <details>
+        <summary>Показать рецепт — ужин</summary>
+        <div class="recipe">
+          <div class="props">
+            <div class="small"><strong>Время:</strong> 20 минут</div>
+            <div class="small"><strong>Калории:</strong> 280</div>
+            <div class="small"><strong>Сложность:</strong> Среднее</div>
+          </div>
+          <div><strong>Ингредиенты:</strong>
+            <ul class="ingredients">
+              <li>100 г киноа</li>
+              <li>150 г куриного филе</li>
+              <li>Овощи: болгарский перец, цукини</li>
+              <li>1 ч.л. оливкового масла</li>
+            </ul>
+          </div>
+          <div><strong>Пошаговый рецепт:</strong>
+            <ol class="steps">
+              <li>Отварить киноа согласно инструкции (примерно 15 минут).</li>
+              <li>Обжарь курицу без масла или с минимальным количеством, добавив специи.</li>
+              <li>Обжарь овощи до мягкости.</li>
+              <li>Смешай всё вместе и подавай.</li>
+            </ol>
+          </div>
+          <div class="small" style="margin-top:8px;">Совет: Можно немного заправить соевым соусом.</div>
+        </div>
+      </details>
+    </div>
+    <p style="margin-top:12px;"><strong>ИТОГ ДНЯ:</strong> Калорийность: 860 ккал, Б: 56 г, Ж: 28 г, У: 110 г</p>
+  </div>
+
+  <!-- Блок советов и рекомендаций -->
+  <div class="card tips">
+    <h3>Ольга, запомни эти 3 быстрых совета против отёков:</h3>
+    <ul>
+      <li>Пей больше чистой воды — минимум 1.5–2 литра в день. Воду можно разбавлять лимоном для вкуса.</li>
+      <li>Уменьши солёные продукты — они задерживают воду в организме.</li>
+      <li>Добавляй в рацион продукты с диуретическим эффектом: огурцы, петрушка, арбуз.</li>
+    </ul>
+    <p class="small"><em>Помни, постепенные изменения помогают избавиться от отёков и чувствовать себя легче. Маленькие шаги — большие результаты!</em></p>
+  </div>
+
+  <!-- Тизер полного плана -->
+  <div class="card">
+    <h3>Тизер полного плана — фрагмент из Дня 3 (ужин)</h3>
+    <p>В полной версии ты найдешь ещё более разнообразные рецепты, советы и поддержку, чтобы закрепить результат.</p>
+    <p style="color:var(--brand); margin-top:6px;">Остальные 20+ рецептов и замены продуктов — внутри полного меню.</p>
+  </div>
+
+  <!-- Список покупок -->
+  <div class="card">
+    <h3>Часть твоего списка покупок:</h3>
+    <ul>
+      <li>Яйца — 4 шт.</li>
+      <li>Помидоры — 3 шт.</li>
+      <li>Шпинат — 100 г</li>
+      <li>Оливковое масло — 2 ст.л.</li>
+      <li>Греческий йогурт — 150 г</li>
+      <li>Яблоки — 2 шт.</li>
+      <li>Бананы — 2 шт.</li>
+      <li>Овсяные хлопья — 100 г</li>
+      <li>Миндаль/орехи — 50 г</li>
+      <li>Куриная грудка — 300 г</li>
+      <li>Брокколи — 200 г</li>
+      <li>Морковь — 1 шт.</li>
+      <li>Цукини — 1 шт.</li>
+      <li>Лимон — 1 шт.</li>
+      <li>Треска или любая белая рыба — 150 г</li>
+      <li>Зелень, специи</li>
+      <li>Киноа — 100 г</li>
+    </ul>
+    <p class="small"><em>Полный список с количеством и ценами — в полном плане вам подготовят по местным магазинам.</em></p>
+  </div>
+
+  <!-- Общие параметры, итоговый баланс -->
+  <div class="card">
+    <h3>Твой ориентировочный дневной баланс:</h3>
+    <p>Калории: <strong>860 ккал</strong></p>
+    <p>Белки: <strong>56 г</strong></p>
+    <p>Жиры: <strong>28 г</strong></p>
+    <p>Углеводы: <strong>110 г</strong></p>
+    <p class="small"><em>В полном плане — точные расчёты и варианты под твой бюджет и доступность продуктов.</em></p>
+  </div>
+
+</div>
+</body>
+</html>
